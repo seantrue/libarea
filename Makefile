@@ -5,7 +5,7 @@ HOME	= .
 CXX     = g++
 CC      = gcc
 LD      = g++
-LDFLAGS = -shared -rdynamic `python-config --ldflags` -lboost_python
+LDFLAGS = -shared -rdynamic `python-config --ldflags` -lboost_python-mt
 LIBS    = -lstdc++ `python-config --libs`
 CFLAGS  = -Wall -I/usr/include `python-config --includes` -I./ -I./kbool/include -g -fPIC
 
@@ -18,7 +18,7 @@ all:	$(LIBOUT)
 
 $(LIBOUT): $(LIBOBJS)
 	@-mkdir -p $(LIBDIR)
-	$(LD) $(LDFLAGS) -fPIC -Wl,-soname,libarea.so.0 $(LIBOBJS) -o $(LIBOUT) $(LIBS)
+	$(LD) $(LDFLAGS) -fPIC -Wl $(LIBOBJS) -o $(LIBOUT) $(LIBS)
 
 clean:
 	@-rm -f $(LIBOBJS)
