@@ -5,9 +5,9 @@ HOME	= .
 CXX     = g++
 CC      = gcc
 LD      = g++
-LDFLAGS = -shared -rdynamic `python-config --ldflags` -lboost_python-mt
-LIBS    = -lstdc++ `python-config --libs`
-CFLAGS  = -Wall -I/usr/include `python-config --includes` -I./ -I./kbool/include -g -fPIC
+LDFLAGS = -L/usr/local/lib -shared -rdynamic `python-config --ldflags` -lboost_python-mt
+LIBS    = -lstdc++ `python-config --libs` 
+CFLAGS  = -Wall -I/usr/include -I/usr/local/Cellar/boost/1.62.0/include `python-config --includes` -I./ -I./kbool/include -g -fPIC
 
 LIBNAME	= area
 LIBOBJS	= Arc.o Area.o AreaBoolean.o AreaDxf.o AreaOrderer.o AreaPocket.o booleng.o Circle.o Construction.o Curve.o dxf.o Finite.o graph.o graphlst.o instonly.o kurve.o line.o link.o lpoint.o Matrix.o node.o offset.o PythonStuff.o record.o scanbeam.o
